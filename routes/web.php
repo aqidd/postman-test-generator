@@ -11,23 +11,7 @@
 |
 */
 
-/*
-Route::get('/', function () {
-    return view('json-schema-form');
-});*/
-Route::get('/', 'genController@home')->middleware('auth');
+Route::get('/', 'genController@home');
 
 Route::post('/request_json','genController@jsonschema');
 
-Route::resource('project','ProjectController');
-
-Auth::routes();
-
-Route::get('/home', function(){
-    return redirect()->to('/');
-});
-
-Route::get('/logout', function(){
-    \Auth::logout();
-    return redirect()->to('/');
-});

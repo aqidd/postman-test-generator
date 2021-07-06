@@ -55,40 +55,6 @@
 <div id="generator">
     <h1 class="title">Postman Test Generator</h1>
     <div class="container">
-
-        <div class="profile">
-            <div class="box">
-                    Halo {{\Auth::user()->name}}! <span><a href="\logout">Logout</a></span>
-            </div>
-            <div v-if="save_error">
-                <div class="alert alert-danger">
-                    <ul>
-                        <li v-for="error in save_error.data.name">@{{ error }}</li>
-                        <li v-for="error in save_error.data.json">@{{ error }}</li>
-                        <li v-for="error in save_error.data.response_time">@{{ error }}</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="box">
-                <div class="columns">
-                    <input class="column is-2" type="text" v-model="project_name" placeholder="Nama Projek">
-                    
-                    <button class="column is-2" v-on:click="save_project">Simpan data</button>
-
-                    <span class="column is-4"></span>
-                <!-- </div>
-                <div class="columns"> -->
-                    <select class="column is-2" name="" v-model="project_chooser" placeholder="Nama Projek" id="">
-                        <option value="">Pilih Projek</option>
-                        <option v-for="(project,key) in projects" :value="key">@{{ project.name }}</option>
-                    </select>
-                    
-                    <button class="column is-2" v-on:click="choose_project">Buka projek</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
         <div class="columns">
             <div class="column">
                 <form method="post" action="/request_json" autocomplete="off">
@@ -103,9 +69,9 @@
                     <input id="deta" type="hidden" name="_token" value="{{ csrf_token() }}">
 
                     <label for="details">JSON:</label>
-                    <textarea v-model="json" name="details" id="details" class="form-control" placeholder="JSON" rows="40" ></textarea>
+                    <textarea v-model="json" name="details" id="details" class="form-control" placeholder="JSON" rows="25" ></textarea>
                     <p><label>Response Time:</label>
-                    <input type="text" v-model="response_time" name="response" class="form-control input" size="50" placeholder="Response Time"></p>
+                    <input type="text" v-model="response_time" name="response" class="form-control input" size="30" placeholder="Response Time"></p>
                     <div class="form-group submit-button">
                         <button type="button" class="btn btn-success" v-on:click="$event.preventDefault();request_data()" name="commit">Submit </button>
                     </div>
